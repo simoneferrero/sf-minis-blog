@@ -1,9 +1,34 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import styled, { css } from 'styled-components'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/Layout'
+import SEO from '../components/Seo'
+
+const StyledBlogPost = styled.article`
+  ${({ theme }) => css`
+    header {
+      h1 {
+        margin: ${theme.spacing['0']} ${theme.spacing['0']}
+          ${theme.spacing['4']} ${theme.spacing['0']};
+      }
+
+      p {
+        font-family: ${theme.font.heading};
+        font-size: ${theme.font.size['2']};
+      }
+    }
+  `}
+`
+
+const StyledBlogPostNav = styled.nav`
+  ${({ theme }) => css`
+    ul {
+        margin: ${theme.spacing['0']} ;
+      h1 {
+      }
+  `}
+`
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -16,11 +41,7 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <article
-        className="blog-post"
-        itemScope
-        itemType="http://schema.org/Article"
-      >
+      <StyledBlogPost itemScope itemType="http://schema.org/Article">
         <header>
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
@@ -30,11 +51,8 @@ const BlogPostTemplate = ({ data, location }) => {
           itemProp="articleBody"
         />
         <hr />
-        <footer>
-          <Bio />
-        </footer>
-      </article>
-      <nav className="blog-post-nav">
+      </StyledBlogPost>
+      <StyledBlogPostNav>
         <ul
           style={{
             display: `flex`,
@@ -59,7 +77,7 @@ const BlogPostTemplate = ({ data, location }) => {
             )}
           </li>
         </ul>
-      </nav>
+      </StyledBlogPostNav>
     </Layout>
   )
 }
@@ -85,6 +103,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        game
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

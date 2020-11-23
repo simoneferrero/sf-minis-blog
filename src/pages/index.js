@@ -1,9 +1,31 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react'
+import { Link, graphql } from 'gatsby'
+import styled, { css } from 'styled-components'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/Layout'
+import SEO from '../components/Seo'
+
+const StyledPostListItem = styled.article`
+  ${({ theme }) => css`
+    margin-bottom: ${theme.spacing['8']};
+    margin-top: ${theme.spacing['8']};
+
+    h2 {
+      color: ${theme.color.primary};
+      font-size: ${theme.font.size['4']};
+      margin-bottom: ${theme.spacing['2']};
+      margin-top: ${theme.spacing['0']};
+    }
+
+    header {
+      margin-bottom: ${theme.spacing['4']};
+    }
+
+    p {
+      margin-bottom: ${theme.spacing['0']};
+    }
+  `}
+`
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -13,7 +35,6 @@ const BlogIndex = ({ data, location }) => {
     return (
       <Layout location={location} title={siteTitle}>
         <SEO title="All posts" />
-        <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -26,15 +47,13 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
 
           return (
             <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
+              <StyledPostListItem
                 itemScope
                 itemType="http://schema.org/Article"
               >
@@ -54,7 +73,7 @@ const BlogIndex = ({ data, location }) => {
                     itemProp="description"
                   />
                 </section>
-              </article>
+              </StyledPostListItem>
             </li>
           )
         })}

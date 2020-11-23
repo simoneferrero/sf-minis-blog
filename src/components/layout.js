@@ -1,35 +1,36 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
+import styled, { ThemeProvider, css } from 'styled-components'
+
+import theme from '../constants/theme'
+
+import Header from './Header'
+import GlobalStyle from './GlobalStyle'
+
+const StyledLayoutWrapper = styled.div`
+  ${({ theme }) => css`
+    margin: ${theme.spacing['0']} auto;
+    max-width: ${theme['max-width'].wrapper};
+    padding: ${theme.spacing['0']} ${theme.spacing['5']};
+  `}
+`
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
-  let header
-
-  if (isRootPath) {
-    header = (
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
-      </h1>
-    )
-  } else {
-    header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
-    )
-  }
 
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
-      </footer>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <StyledLayoutWrapper data-is-root-path={isRootPath}>
+        <Header />
+        <main>{children}</main>
+        <footer>
+          © {new Date().getFullYear()}, Built with
+          {` `}
+          <a href="https://www.gatsbyjs.com">Gatsby</a>
+        </footer>
+      </StyledLayoutWrapper>
+    </ThemeProvider>
   )
 }
 
