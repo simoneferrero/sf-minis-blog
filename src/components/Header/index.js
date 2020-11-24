@@ -3,8 +3,8 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import Image from 'gatsby-image'
 import styled, { css } from 'styled-components'
 
-import Instagram from '../../content/svg/instagram.svg'
-import Github from '../../content/svg/github.svg'
+import Instagram from '../../../content/svg/instagram.svg'
+import Github from '../../../content/svg/github.svg'
 
 const StyledHeader = styled.header`
   display: grid;
@@ -64,11 +64,11 @@ const Header = () => {
   const { instagram, github } = data.site.siteMetadata?.social
   const socials = [
     {
-      url: `https://instagram.com/${instagram}`,
+      url: instagram,
       icon: <Instagram />,
     },
     {
-      url: `https://github.com/${github}`,
+      url: github,
       icon: <Github />,
     },
   ]
@@ -77,15 +77,11 @@ const Header = () => {
   return (
     <StyledHeader>
       <StyledLink to="/">
-        <Image
-          fixed={logo}
-          alt={title}
-          className="Header-logo"
-        />
+        <Image fixed={logo} alt={title} className="Header-logo" />
       </StyledLink>
       <StyledSocial>
         {socials.map(({ url, icon }) => (
-          <a href={url} rel="noopener noreferrer" target="_blank">
+          <a href={url} rel="noopener noreferrer" key={url} target="_blank">
             {icon}
           </a>
         ))}

@@ -83,6 +83,7 @@ const GlobalStyle = createGlobalStyle`
 			font-size: ${theme.font.size['1']};
 		}
 
+		a,
 		h1 > a,
 		h2 > a,
 		h3 > a,

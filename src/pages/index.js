@@ -3,28 +3,14 @@ import { Link, graphql } from 'gatsby'
 import styled, { css } from 'styled-components'
 
 import Layout from '../components/Layout'
+import PostListItem from '../components/PostListItem'
 import SEO from '../components/Seo'
 
-const StyledPostListItem = styled.article`
-  ${({ theme }) => css`
-    margin-bottom: ${theme.spacing['8']};
-    margin-top: ${theme.spacing['8']};
-
-    h2 {
-      color: ${theme.color.primary};
-      font-size: ${theme.font.size['4']};
-      margin-bottom: ${theme.spacing['2']};
-      margin-top: ${theme.spacing['0']};
-    }
-
-    header {
-      margin-bottom: ${theme.spacing['4']};
-    }
-
-    p {
-      margin-bottom: ${theme.spacing['0']};
-    }
-  `}
+const StyledPostList = styled.ol`
+  list-style: none;
+  display: grid;
+  grid-gap: ${({ theme }) => theme.spacing['12']};
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 `
 
 const BlogIndex = ({ data, location }) => {
@@ -47,37 +33,21 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
-
+      <StyledPostList>
+        {posts.map(({ fields, frontmatter }) => {
           return (
-            <li key={post.fields.slug}>
-              <StyledPostListItem
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </StyledPostListItem>
-            </li>
+            <PostListItem
+              key={fields.slug}
+              date={frontmatter.date}
+              description={frontmatter.description}
+              featuredImage={frontmatter.featuredImage}
+              origin={frontmatter.origin}
+              slug={fields.slug}
+              title={frontmatter.title}
+            />
           )
         })}
-      </ol>
+      </StyledPostList>
     </Layout>
   )
 }
@@ -98,9 +68,17 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          date(formatString: "DD MMM YYYY")
           title
           description
+          origin
+          featuredImage {
+            childImageSharp {
+              fluid(maxWidth: 600) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }

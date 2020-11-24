@@ -8,8 +8,8 @@ module.exports = {
     description: `A showcase for my painted miniatures.`,
     siteUrl: `https://sfminis.surge.sh/`,
     social: {
-      instagram: `sf_minis`,
-      github: `simoneferrero`,
+      instagram: `https://instagram.com/sf_minis`,
+      github: `https://github.com/simoneferrero/sf-minis-blog`,
     },
   },
   plugins: [
@@ -66,7 +66,6 @@ module.exports = {
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#00adb5`,
-        // theme_color: `#00686d`,
         display: `minimal-ui`,
         icon: `content/assets/icon.png`,
       },
