@@ -1,7 +1,16 @@
 import { createGlobalStyle, css } from 'styled-components'
 
+import AsimoneBrush from '../../fonts/AsimoneBrush.otf'
+
 const GlobalStyle = createGlobalStyle`
 	${({ theme }) => css`
+		/* Fonts */
+
+		@font-face {
+			font-family: "AsimoneBrush";
+			src: url("${AsimoneBrush}");
+		}
+
 		/* HTML elements */
 
 		*,
@@ -53,12 +62,12 @@ const GlobalStyle = createGlobalStyle`
 		h4,
 		h5,
 		h6 {
-			color: ${theme.color.heading};
+			color: ${theme.color.primary};
 			font-weight: ${theme.font.weight.bold};
 		}
 
 		h1 {
-			color: ${theme.color.primary};
+			color: ${theme.color.heading};
 			font-size: ${theme.font.size['6']};
 			font-weight: ${theme.font.weight.black};
 		}

@@ -1,7 +1,7 @@
 const fontFamilySans = `Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
 "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
 "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`
-const fontFamilySerif = `"Merriweather", "Georgia", Cambria, "Times New Roman",
+const fontFamilySerif = `"AsimoneBrush", "Georgia", Cambria, "Times New Roman",
 Times, serif`
 
 const theme = {
@@ -17,6 +17,13 @@ const theme = {
     '4xl': '56rem',
     full: '100%',
     wrapper: '42rem',
+  },
+  size: {
+    logo: '125px',
+    frame: {
+      small: '75px',
+      big: '125px',
+    },
   },
   spacing: {
     px: '1px',
@@ -75,7 +82,15 @@ const theme = {
     heading: '#00686d',
     'heading-black': 'black',
     accent: '#d1dce5',
+    'background-primary': '#fff',
+    'background-secondary': '#e2f7f6',
   },
+  'media-queries': {
+    mobile: '480px',
+    tablet: '690px',
+    laptop: '1024px',
+    desktop: '1200px'
+  }
 }
 
 export default theme

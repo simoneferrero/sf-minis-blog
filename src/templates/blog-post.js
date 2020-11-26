@@ -1,83 +1,175 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import styled, { css } from 'styled-components'
 
+import FeaturedImage from '../components/FeaturedImage'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
 
 const StyledBlogPost = styled.article`
   ${({ theme }) => css`
+    text-align: justify;
+
     header {
+      text-align: center;
+      margin-bottom: ${theme.spacing['12']};
+
       h1 {
         margin: ${theme.spacing['0']} ${theme.spacing['0']}
           ${theme.spacing['4']} ${theme.spacing['0']};
       }
 
       p {
-        font-family: ${theme.font.heading};
+        color: ${theme.color.text};
         font-size: ${theme.font.size['2']};
+        font-weight: ${theme.font.weight.bold};
+        margin-bottom: 0;
+        margin-top: 12%;
       }
     }
   `}
 `
 
-const StyledBlogPostNav = styled.nav`
+const StyledBlogPostNav = styled.div`
   ${({ theme }) => css`
-    ul {
-        margin: ${theme.spacing['0']} ;
-      h1 {
+    .previous,
+    .next {
+      color: ${theme.color.heading};
+      overflow: hidden;
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 15vh;
+
+      .thumbnail {
+        background-color: ${theme.color['background-primary']};
+        overflow: hidden;
+        padding: ${theme.spacing['1']};
+        text-align: center;
+        text-overflow: ellipsis;
+        transition: .1s linear;
+        white-space: nowrap;
+        width: 15vh;
+
+        .gatsby-image-wrapper > div {
+          padding-bottom: 100% !important;
+        }
+
+        small {
+          font-family: ${theme.font.family.sans};
+          padding: ${theme.spacing['1']};
+        }
       }
+
+      .arrow {
+        font-size: ${theme.font.size['3']};
+        font-weight: ${theme.font.weight.bold};
+        padding: ${theme.spacing['4']};
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 15vh;
+      }
+
+      &:hover {
+        .thumbnail {
+          transform: translateX(0);
+        }
+      }
+    }
+
+    .previous {
+      left: 0;
+      transform: translateY(-50%);
+
+      .thumbnail {
+        padding-left: 0;
+        transform: translateX(-101%);
+      }
+
+      .arrow {
+        text-align: left;
+      }
+
+      &:hover {
+        .thumbnail {
+          transform: translateX(0);
+        }
+      }
+    }
+
+    .next {
+      right: 0;
+
+      .thumbnail {
+        padding-right: 0;
+        transform: translateX(101%);
+      }
+
+      .arrow {
+        text-align: right;
+      }
+
+      &:hover {
+        .thumbnail {
+          transform: translateX(0);
+        }
+      }
+    }
   `}
 `
 
 const BlogPostTemplate = ({ data, location }) => {
-  const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const { previous, next } = data
+  const { markdownRemark: { frontmatter, html }, previous, next } = data
+  const { date, description, featuredImage, title, origin } = frontmatter
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={title}>
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        title={title}
+        description={description}
       />
       <StyledBlogPost itemScope itemType="http://schema.org/Article">
         <header>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <FeaturedImage
+            date={date}
+            description={description}
+            featuredImage={featuredImage}
+            isBig
+          />
+          <p><small>{origin}</small></p>
+          <h1>
+              <span itemProp="headline">{title}</span>
+          </h1>
         </header>
         <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
+          dangerouslySetInnerHTML={{ __html: html }}
           itemProp="articleBody"
         />
         <hr />
       </StyledBlogPost>
       <StyledBlogPostNav>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
+        {previous && (
+          <Link className="previous" to={previous.fields.slug} rel="prev">
+            <div className="arrow">←</div>
+            <div className="thumbnail">
+              <Img fluid={previous.frontmatter.featuredImage.childImageSharp.fluid} alt={`Go to ${previous.frontmatter.title}`} />
+              <small>{previous.frontmatter.title}</small>
+            </div>
+          </Link>
+        )}
+        {next && (
+          <Link className="next" to={next.fields.slug} rel="prev">
+            <div className="arrow">→</div>
+            <div className="thumbnail">
+              <Img fluid={next.frontmatter.featuredImage.childImageSharp.fluid} alt={`Go to ${next.frontmatter.title}`} />
+              <small>{next.frontmatter.title}</small>
+            </div>
+          </Link>
+        )}
       </StyledBlogPostNav>
+      {/* TODO: Add gallery at the end */}
     </Layout>
   )
 }
@@ -101,9 +193,16 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD MMM YYYY")
         description
-        game
+        origin
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 600) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
@@ -112,6 +211,13 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 200) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
     next: markdownRemark(id: { eq: $nextPostId }) {
@@ -120,6 +226,13 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 200) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import styled, { css } from 'styled-components'
 
 import Layout from '../components/Layout'
@@ -7,10 +7,16 @@ import PostListItem from '../components/PostListItem'
 import SEO from '../components/Seo'
 
 const StyledPostList = styled.ol`
-  list-style: none;
-  display: grid;
-  grid-gap: ${({ theme }) => theme.spacing['12']};
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  ${({ theme }) => css`
+    list-style: none;
+    display: grid;
+    grid-gap: ${theme.spacing['12']};
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr)); /* Use MQ to limit to 4 for large screens */
+
+    @media screen and (min-width: ${theme['media-queries'].desktop}) {
+      grid-template-columns: repeat(4, minmax(300px, 1fr));
+    }
+  `}
 `
 
 const BlogIndex = ({ data, location }) => {

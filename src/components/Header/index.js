@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
-import Image from 'gatsby-image'
 import styled, { css } from 'styled-components'
 
 import Instagram from '../../../content/svg/instagram.svg'
 import Github from '../../../content/svg/github.svg'
+import Logo from '../../../content/svg/logo.svg'
 
 const StyledHeader = styled.header`
   display: grid;
@@ -15,6 +15,13 @@ const StyledHeader = styled.header`
   > * {
     align-self: center;
   }
+`
+
+const StyledLogo = styled(Logo)`
+  ${({ theme }) => css`
+    height: ${theme.size.logo};
+    width: ${theme.size.logo};
+  `}
 `
 
 const StyledLink = styled(Link)`
@@ -41,13 +48,6 @@ const StyledSocial = styled.div`
 const Header = () => {
   const data = useStaticQuery(graphql`
     query HeaderQuery {
-      logo: file(absolutePath: { regex: "/icon.png/" }) {
-        childImageSharp {
-          fixed(width: 200, quality: 95) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
       site {
         siteMetadata {
           title
@@ -72,12 +72,11 @@ const Header = () => {
       icon: <Github />,
     },
   ]
-  const logo = data?.logo?.childImageSharp?.fixed
 
   return (
     <StyledHeader>
       <StyledLink to="/">
-        <Image fixed={logo} alt={title} className="Header-logo" />
+        <StyledLogo alt={title} />
       </StyledLink>
       <StyledSocial>
         {socials.map(({ url, icon }) => (
