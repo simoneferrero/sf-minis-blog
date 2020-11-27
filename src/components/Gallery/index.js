@@ -35,7 +35,7 @@ const StyledCoverWrapper = styled.div`
         max-height: 50px;
         max-width: 50px;
         padding: ${theme.spacing['4']};
-        position: absolute;
+        position: fixed;
         right: 0;
         top: 0;
       }
@@ -56,7 +56,7 @@ const StyledCoverWrapper = styled.div`
       font-size: ${theme.font.size['3']};
       font-weight: ${theme.font.weight.bold};
       padding: ${theme.spacing['4']};
-      position: absolute;
+      position: fixed;
       top: 50%;
       transform: translateY(-50%);
 
