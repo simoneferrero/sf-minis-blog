@@ -29,7 +29,6 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "styled-components": "^5.2.1",
-    "typeface-merriweather": "1.1.13",
     "typeface-montserrat": "1.1.13"
   },
   "devDependencies": {
@@ -38,15 +37,18 @@
     "babel-preset-react-app": "^10.0.0",
     "prettier": "2.2.0"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/simoneferrero/sf-minis-blog#readme",
   "keywords": [
-    "gatsby"
+    "miniatures",
+    "minis",
+    "painting",
+    "hobby"
   ],
   "license": "0BSD",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/simoneferrero/sf-minis-blog.git"
   },
   "scripts": {
     "build": "gatsby build",

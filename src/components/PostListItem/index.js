@@ -12,7 +12,12 @@ const StyledPostListItem = styled.li`
       text-decoration: none;
 
       .title {
-        background-image: linear-gradient(0deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, .6) 80%, rgba(255, 255, 255, 0));
+        background-image: linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 1),
+          rgba(255, 255, 255, 0.6) 80%,
+          rgba(255, 255, 255, 0)
+        );
         bottom: 0;
         left: 0;
         margin-bottom: ${theme.spacing['0']};
@@ -39,23 +44,29 @@ const StyledPostListItem = styled.li`
   `}
 `
 
-const PostListItem = ({ date, description, origin, featuredImage, slug, title }) => {
+const PostListItem = ({
+  date,
+  description,
+  origin,
+  featuredImage,
+  slug,
+  title,
+}) => {
   return (
     <StyledPostListItem>
       <Link to={slug} itemProp="url">
-        <article
-          itemScope
-          itemType="http://schema.org/Article"
-        >
+        <article itemScope itemType="http://schema.org/Article">
           <FeaturedImage
             date={date}
             description={description}
             featuredImage={featuredImage}
           />
           <header className="title">
-            <p><small>{origin}</small></p>
+            <p>
+              <small>{origin}</small>
+            </p>
             <h2>
-                <span itemProp="headline">{title}</span>
+              <span itemProp="headline">{title}</span>
             </h2>
           </header>
         </article>

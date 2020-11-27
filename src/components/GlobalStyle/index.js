@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
 		}
 
 		footer {
-			padding: ${theme.spacing['6']} ${theme.spacing['0']};
+			padding: ${theme.spacing['4']} ${theme.spacing['0']};
 		}
 
 		hr {

@@ -80,17 +80,18 @@ const theme = {
     text: '#2e353f',
     'text-light': '#4f5969',
     heading: '#00686d',
-    'heading-black': 'black',
+    'heading-black': '#000',
     accent: '#d1dce5',
     'background-primary': '#fff',
     'background-secondary': '#e2f7f6',
+    'background-dark': '#000c',
   },
   'media-queries': {
     mobile: '480px',
     tablet: '690px',
     laptop: '1024px',
-    desktop: '1200px'
-  }
+    desktop: '1200px',
+  },
 }
 
 export default theme

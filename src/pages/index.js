@@ -11,7 +11,7 @@ const StyledPostList = styled.ol`
     list-style: none;
     display: grid;
     grid-gap: ${theme.spacing['12']};
-    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr)); /* Use MQ to limit to 4 for large screens */
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
 
     @media screen and (min-width: ${theme['media-queries'].desktop}) {
       grid-template-columns: repeat(4, minmax(300px, 1fr));
@@ -80,7 +80,7 @@ export const pageQuery = graphql`
           origin
           featuredImage {
             childImageSharp {
-              fluid(maxWidth: 600) {
+              fluid(maxWidth: 600, maxHeight: 600) {
                 ...GatsbyImageSharpFluid
               }
             }

@@ -11,7 +11,8 @@ const StyledLayoutWrapper = styled.div`
     margin: ${theme.spacing['0']} auto;
     padding: ${theme.spacing['5']} ${theme.spacing['12']};
 
-    main {
+    main,
+    footer {
       margin: ${theme.spacing['0']} auto;
       max-width: ${!isRootPath && theme['max-width'].wrapper};
     }
@@ -29,9 +30,11 @@ const Layout = ({ location, title, children }) => {
         <Header />
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
+          <small>
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            <a href="https://www.gatsbyjs.com">Gatsby</a>
+          </small>
         </footer>
       </StyledLayoutWrapper>
     </ThemeProvider>
