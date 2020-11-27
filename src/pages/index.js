@@ -1,9 +1,23 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react'
+import { graphql } from 'gatsby'
+import styled, { css } from 'styled-components'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from '../components/Layout'
+import PostListItem from '../components/PostListItem'
+import SEO from '../components/Seo'
+
+const StyledPostList = styled.ol`
+  ${({ theme }) => css`
+    list-style: none;
+    display: grid;
+    grid-gap: ${theme.spacing['12']};
+    grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+
+    @media screen and (min-width: ${theme['media-queries'].desktop}) {
+      grid-template-columns: repeat(4, minmax(300px, 1fr));
+    }
+  `}
+`
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -13,7 +27,6 @@ const BlogIndex = ({ data, location }) => {
     return (
       <Layout location={location} title={siteTitle}>
         <SEO title="All posts" />
-        <Bio />
         <p>
           No blog posts found. Add markdown posts to "content/blog" (or the
           directory you specified for the "gatsby-source-filesystem" plugin in
@@ -26,39 +39,21 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
-
+      <StyledPostList>
+        {posts.map(({ fields, frontmatter }) => {
           return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
+            <PostListItem
+              key={fields.slug}
+              date={frontmatter.date}
+              description={frontmatter.description}
+              featuredImage={frontmatter.featuredImage}
+              origin={frontmatter.origin}
+              slug={fields.slug}
+              title={frontmatter.title}
+            />
           )
         })}
-      </ol>
+      </StyledPostList>
     </Layout>
   )
 }
@@ -79,9 +74,17 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
+          date(formatString: "DD MMM YYYY")
           title
           description
+          origin
+          featuredImage {
+            childImageSharp {
+              fluid(maxWidth: 600, maxHeight: 600) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }

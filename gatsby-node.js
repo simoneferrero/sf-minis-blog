@@ -23,13 +23,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
-    `
+    `,
   )
 
   if (result.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
-      result.errors
+      result.errors,
     )
     return
   }
@@ -44,6 +44,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     posts.forEach((post, index) => {
       const previousPostId = index === 0 ? null : posts[index - 1].id
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
+      const { slug } = post.fields
 
       createPage({
         path: post.fields.slug,
@@ -52,6 +53,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           id: post.id,
           previousPostId,
           nextPostId,
+          dirRegex: `/${slug.slice(0, slug.length - 1)}$/`,
         },
       })
     })
@@ -62,12 +64,19 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
+    const slugValue = createFilePath({ node, getNode })
+    const parentIdValue = node.parent
 
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: slugValue,
+    })
+
+    createNodeField({
+      name: `parentId`,
+      node,
+      value: parentIdValue,
     })
   }
 }
@@ -94,7 +103,8 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type Social {
-      twitter: String
+      instagram: String
+      github: String
     }
 
     type MarkdownRemark implements Node {
@@ -106,6 +116,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      game: String
     }
 
     type Fields {
