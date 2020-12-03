@@ -102,15 +102,17 @@ const Gallery = ({ images }) => {
   return (
     <>
       <StyledThumbnailWrapper>
-        {images.map(image => (
-          <StyledButton
-            aria-label={`Display image ${image.name}`}
-            key={image.thumb.src}
-            onClick={() => setSelectedImage(image)}
-          >
-            <Img fluid={image.thumb} alt={image.name} />
-          </StyledButton>
-        ))}
+        {images
+          .sort((a, b) => (a.name < b.name ? -1 : 1))
+          .map(image => (
+            <StyledButton
+              aria-label={`Display image ${image.name}`}
+              key={image.thumb.src}
+              onClick={() => setSelectedImage(image)}
+            >
+              <Img fluid={image.thumb} alt={image.name} />
+            </StyledButton>
+          ))}
       </StyledThumbnailWrapper>
       {selectedImage ? (
         <StyledCoverWrapper hidden={!selectedImage}>

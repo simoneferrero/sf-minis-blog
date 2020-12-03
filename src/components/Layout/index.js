@@ -12,10 +12,14 @@ const StyledLayoutWrapper = styled.div`
     margin: ${theme.spacing['0']} auto;
     padding: ${theme.spacing['5']} ${theme.spacing['12']};
 
-    main,
-    footer {
+    main {
       margin: ${theme.spacing['0']} auto;
       max-width: ${!isRootPath && theme['max-width'].wrapper};
+    }
+
+    footer {
+      margin: ${theme.spacing['0']} auto;
+      max-width: ${theme['max-width'].wrapper};
     }
   `}
 `
