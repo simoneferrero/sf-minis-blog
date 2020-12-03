@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import styled, { css } from 'styled-components'
 
@@ -73,6 +74,15 @@ const PostListItem = ({
       </Link>
     </StyledPostListItem>
   )
+}
+
+PostListItem.propTypes = {
+  date: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  origin: PropTypes.string.isRequired,
+  featuredImage: PropTypes.object.isRequired,
+  slug: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 }
 
 export default PostListItem

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import styled, { css } from 'styled-components'
@@ -207,6 +208,65 @@ const BlogPostTemplate = ({ data, location }) => {
   )
 }
 
+BlogPostTemplate.propTypes = {
+  data: PropTypes.shape({
+    allFile: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          node: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            childImageSharp: PropTypes.shape({
+              full: PropTypes.object.isRequired,
+              thumb: PropTypes.object.isRequired,
+            }).isRequired,
+          }).isRequired,
+        }),
+      ).isRequired,
+    }).isRequired,
+    markdownRemark: PropTypes.shape({
+      html: PropTypes.string.isRequired,
+      frontmatter: PropTypes.shape({
+        date: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+        origin: PropTypes.string.isRequired,
+        featuredImage: PropTypes.shape({
+          childImageSharp: PropTypes.shape({
+            fluid: PropTypes.object.isRequired,
+          }).isRequired,
+        }).isRequired,
+      }).isRequired,
+    }).isRequired,
+    next: PropTypes.shape({
+      fields: PropTypes.shape({
+        slug: PropTypes.string.isRequired,
+      }).isRequired,
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        featuredImage: PropTypes.shape({
+          childImageSharp: PropTypes.shape({
+            fluid: PropTypes.object.isRequired,
+          }).isRequired,
+        }).isRequired,
+      }).isRequired,
+    }).isRequired,
+    previous: PropTypes.shape({
+      fields: PropTypes.shape({
+        slug: PropTypes.string.isRequired,
+      }).isRequired,
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        featuredImage: PropTypes.shape({
+          childImageSharp: PropTypes.shape({
+            fluid: PropTypes.object.isRequired,
+          }).isRequired,
+        }).isRequired,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
+  location: PropTypes.object.isRequired,
+}
+
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
@@ -222,8 +282,6 @@ export const pageQuery = graphql`
       }
     }
     markdownRemark(id: { eq: $id }) {
-      id
-      excerpt(pruneLength: 160)
       html
       frontmatter {
         title

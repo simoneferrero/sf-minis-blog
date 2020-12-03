@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled, { ThemeProvider, css } from 'styled-components'
 
 import theme from '../../constants/theme'
@@ -19,7 +20,7 @@ const StyledLayoutWrapper = styled.div`
   `}
 `
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
 
@@ -39,6 +40,11 @@ const Layout = ({ location, title, children }) => {
       </StyledLayoutWrapper>
     </ThemeProvider>
   )
+}
+
+Layout.propTypes = {
+  location: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
 }
 
 export default Layout

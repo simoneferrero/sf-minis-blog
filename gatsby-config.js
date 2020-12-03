@@ -6,7 +6,7 @@ module.exports = {
       summary: `Programmer, team lead, amateur painter, bad footballer, unfortunately not Batman.`,
     },
     description: `A showcase for my painted miniatures.`,
-    siteUrl: `https://sfminis.surge.sh/`,
+    siteUrl: `https://sfminis.net/`,
     social: {
       instagram: `https://instagram.com/sf_minis`,
       github: `https://github.com/simoneferrero/sf-minis-blog`,

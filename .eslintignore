@@ -1,0 +1,16 @@
+coverage
+dist
+node_modules
+cypress/videos
+cypress/screenshots
+logs
+mochawesome-report
+metrics
+package.json
+
+.cache
+content
+public
+static
+
+**/*.snap
