@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import styled, { css } from 'styled-components'
 
@@ -111,7 +112,7 @@ const Gallery = ({ images }) => {
           </StyledButton>
         ))}
       </StyledThumbnailWrapper>
-      {!!selectedImage ? (
+      {selectedImage ? (
         <StyledCoverWrapper hidden={!selectedImage}>
           <StyledButton
             aria-label="Close gallery view"
@@ -147,6 +148,16 @@ const Gallery = ({ images }) => {
       ) : null}
     </>
   )
+}
+
+Gallery.propTypes = {
+  images: PropTypes.arrayOf(
+    PropTypes.shape({
+      full: PropTypes.object.isRequired,
+      name: PropTypes.string.isRequired,
+      thumb: PropTypes.object.isRequired,
+    }),
+  ).isRequired,
 }
 
 export default Gallery

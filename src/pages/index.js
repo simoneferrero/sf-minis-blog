@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import styled, { css } from 'styled-components'
 
@@ -28,9 +29,9 @@ const BlogIndex = ({ data, location }) => {
       <Layout location={location} title={siteTitle}>
         <SEO title="All posts" />
         <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
+          No blog posts found. Add markdown posts to `&quot;content/blog`&quot;
+          (or the directory you specified for the
+          `&quot;gatsby-source-filesystem`&quot; plugin in gatsby-config.js).
         </p>
       </Layout>
     )
@@ -58,6 +59,37 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
+BlogIndex.propTypes = {
+  data: PropTypes.shape({
+    allMarkdownRemark: PropTypes.shape({
+      nodes: PropTypes.arrayOf(
+        PropTypes.shape({
+          fields: PropTypes.shape({
+            slug: PropTypes.string.isRequired,
+          }).isRequired,
+          frontmatter: PropTypes.shape({
+            date: PropTypes.string.isRequired,
+            title: PropTypes.string.isRequired,
+            description: PropTypes.string.isRequired,
+            origin: PropTypes.string.isRequired,
+            featuredImage: PropTypes.shape({
+              childImageSharp: PropTypes.shape({
+                fluid: PropTypes.object.isRequired,
+              }).isRequired,
+            }).isRequired,
+          }).isRequired,
+        }),
+      ).isRequired,
+    }).isRequired,
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
+  location: PropTypes.object.isRequired,
+}
+
 export default BlogIndex
 
 export const pageQuery = graphql`
@@ -69,7 +101,6 @@ export const pageQuery = graphql`
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
-        excerpt
         fields {
           slug
         }

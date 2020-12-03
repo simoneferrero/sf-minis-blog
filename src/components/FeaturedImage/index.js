@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import styled, { css } from 'styled-components'
 
@@ -78,6 +79,17 @@ const FeaturedImage = ({ date, description, featuredImage, isBig }) => {
       </section>
     </StyledFeaturedImage>
   )
+}
+
+FeaturedImage.propTypes = {
+  date: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  featuredImage: PropTypes.shape({
+    childImageSharp: PropTypes.shape({
+      fluid: PropTypes.object.isRequired,
+    }).isRequired,
+  }).isRequired,
+  isBig: PropTypes.bool,
 }
 
 export default FeaturedImage
