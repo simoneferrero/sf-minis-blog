@@ -249,7 +249,7 @@ BlogPostTemplate.propTypes = {
           }).isRequired,
         }).isRequired,
       }).isRequired,
-    }).isRequired,
+    }),
     previous: PropTypes.shape({
       fields: PropTypes.shape({
         slug: PropTypes.string.isRequired,
@@ -262,7 +262,7 @@ BlogPostTemplate.propTypes = {
           }).isRequired,
         }).isRequired,
       }).isRequired,
-    }).isRequired,
+    }),
   }).isRequired,
   location: PropTypes.object.isRequired,
 }
