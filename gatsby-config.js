@@ -11,9 +11,9 @@ module.exports = {
     },
     description: `A showcase for my painted miniatures.`,
     siteUrl: `https://sfminis.net/`,
+    source: `https://github.com/simoneferrero/sf-minis-blog`,
     social: {
       instagram: `https://instagram.com/sf_minis`,
-      github: `https://github.com/simoneferrero/sf-minis-blog`,
     },
   },
   plugins: [

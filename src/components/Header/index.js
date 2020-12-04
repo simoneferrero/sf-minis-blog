@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled, { css } from 'styled-components'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import Instagram from '../../../content/svg/instagram.svg'
-import Github from '../../../content/svg/github.svg'
 import Logo from '../../../content/svg/logo.svg'
 
 const StyledHeader = styled.header`
@@ -34,9 +34,12 @@ const StyledSocial = styled.div`
     align-items: center;
     display: grid;
     grid-area: social;
-    grid-column-gap: ${theme.spacing['4']};
-    grid-template-columns: repeat(2, 1fr);
+    grid-gap: ${theme.spacing['2']};
+    grid-template-columns: repeat(auto-fit, ${theme.font.size['4']});
+    justify-content: right;
     justify-self: right;
+    padding-left: ${theme.spacing['2']};
+    width: 100%;
 
     svg {
       fill: ${theme.color.primary};
@@ -61,15 +64,11 @@ const Header = () => {
   `)
 
   const { title } = data.site.siteMetadata
-  const { instagram, github } = data.site.siteMetadata?.social
+  const { instagram } = data.site.siteMetadata?.social
   const socials = [
     {
       url: instagram,
       icon: <Instagram />,
-    },
-    {
-      url: github,
-      icon: <Github />,
     },
   ]
 
@@ -80,9 +79,14 @@ const Header = () => {
       </StyledLink>
       <StyledSocial>
         {socials.map(({ url, icon }) => (
-          <a href={url} rel="noopener noreferrer" key={url} target="_blank">
+          <OutboundLink
+            href={url}
+            rel="noopener noreferrer"
+            key={url}
+            target="_blank"
+          >
             {icon}
-          </a>
+          </OutboundLink>
         ))}
       </StyledSocial>
     </StyledHeader>
