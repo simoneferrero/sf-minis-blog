@@ -13,7 +13,9 @@ module.exports = {
     siteUrl: `https://sfminis.net/`,
     source: `https://github.com/simoneferrero/sf-minis-blog`,
     social: {
+      facebook: `https://facebook.com/sfminis`,
       instagram: `https://instagram.com/sf_minis`,
+      twitter: `https://twitter.com/sfminis`,
     },
   },
   plugins: [
