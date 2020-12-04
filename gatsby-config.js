@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: '.env',
+})
+
 module.exports = {
   siteMetadata: {
     title: `SF Minis Blog`,
@@ -54,7 +58,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: process.env.GA_TRACKING_ID,
       },
     },
     `gatsby-plugin-feed`,
@@ -81,5 +85,6 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-feed`,
   ],
 }

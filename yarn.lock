@@ -5139,8 +5139,8 @@ dot-prop@^5.2.0:
 
 dotenv@^8.2.0:
   version "8.2.0"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
-  integrity sha512-8sJ78ElpbDJBHNeBzUbUVLsqKdccaa/BXF1uPTw3GrvQTBgrQrtObr2mUrE38vzYd8cEv+m/JBfDLioYcfXoaw==
+  resolved "https://artifactory.gamesys.co.uk:443/artifactory/api/npm/gamesys-ps-community-npm/dotenv/-/dotenv-8.2.0.tgz#97e619259ada750eea3e4ea3e26bceea5424b16a"
+  integrity sha1-l+YZJZradQ7qPk6j4mvO6lQksWo=
 
 download@^6.2.2:
   version "6.2.5"
@@ -6599,16 +6599,16 @@ gatsby-page-utils@^0.4.0:
     lodash "^4.17.20"
     micromatch "^4.0.2"
 
-gatsby-plugin-feed@^2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-2.8.0.tgz#db8155a1ad7371331884a743f542f153ce770316"
-  integrity sha512-wFevUmkD94SDIpNvsdTj7zS/OAKuRwUkFGp2GsOKTKRkl46tlvR+vosF3sceOOZtXBeMH39DEq17miRp5I2kUg==
+gatsby-plugin-feed@^2.9.0:
+  version "2.9.0"
+  resolved "https://artifactory.gamesys.co.uk:443/artifactory/api/npm/gamesys-ps-community-npm/gatsby-plugin-feed/-/gatsby-plugin-feed-2.9.0.tgz#4ee7d0e91c344db00706c5dc735cfd9b6bf7b349"
+  integrity sha1-TufQ6Rw0TbAHBsXcc1z9m2v3s0k=
   dependencies:
     "@babel/runtime" "^7.12.5"
     "@hapi/joi" "^15.1.1"
     common-tags "^1.8.0"
     fs-extra "^8.1.0"
-    gatsby-plugin-utils "^0.4.0"
+    gatsby-plugin-utils "^0.5.0"
     lodash.merge "^4.6.2"
     rss "^1.2.2"
 
@@ -6720,6 +6720,13 @@ gatsby-plugin-utils@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-utils/-/gatsby-plugin-utils-0.4.0.tgz#ab3ac9910b9a8397fab54c3b73b2debd4b67a281"
   integrity sha512-yxDzKcEmZc0whi/d+2appWVhqhrpWfFAPRO0pjIszCEgaeqybUB2lSL6Hx5r36W4Ff1INQ0A/WfPOJETLY+O2A==
+  dependencies:
+    joi "^17.2.1"
+
+gatsby-plugin-utils@^0.5.0:
+  version "0.5.0"
+  resolved "https://artifactory.gamesys.co.uk:443/artifactory/api/npm/gamesys-ps-community-npm/gatsby-plugin-utils/-/gatsby-plugin-utils-0.5.0.tgz#5d0c0b9589b673f422e09e3e2e80bafbe3457505"
+  integrity sha1-XQwLlYm2c/Qi4J4+LoC6++NFdQU=
   dependencies:
     joi "^17.2.1"
 
@@ -12069,6 +12076,11 @@ readdirp@~3.5.0:
   integrity sha512-cMhu7c/8rdhkHXWsY+osBhfSy0JikwpHK/5+imo+LpeasTF8ouErHrlYkwT0++njiyuDvc7OFY5T3ukvZ8qmFQ==
   dependencies:
     picomatch "^2.2.1"
+
+reading-time@^1.2.1:
+  version "1.2.1"
+  resolved "https://artifactory.gamesys.co.uk:443/artifactory/api/npm/gamesys-ps-community-npm/reading-time/-/reading-time-1.2.1.tgz#c5533dca26fef91928a392e147ee51b64d163cba"
+  integrity sha1-xVM9yib++Rkoo5LhR+5Rtk0WPLo=
 
 recursive-readdir@2.2.1:
   version "2.2.1"
