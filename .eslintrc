@@ -19,17 +19,13 @@
   },
   "overrides": [
     {
-      "files": [
-        "**/setupTests.js"
-      ],
+      "files": ["**/setupTests.js"],
       "env": {
         "jest": true
       }
     },
     {
-      "files": [
-        "**/*.test.js"
-      ],
+      "files": ["**/*.test.js"],
       "env": {
         "jest": true
       },
@@ -40,9 +36,7 @@
         "wait": true,
         "waitForElement": true
       },
-      "plugins": [
-        "jest"
-      ]
+      "plugins": ["markdown", "jest"]
     }
   ],
   "globals": {

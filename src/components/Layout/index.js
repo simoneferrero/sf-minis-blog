@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useStaticQuery, graphql } from 'gatsby'
 import styled, { ThemeProvider, css } from 'styled-components'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 import theme from '../../constants/theme'
 
@@ -25,6 +27,20 @@ const StyledLayoutWrapper = styled.div`
 `
 
 const Layout = ({ location, children }) => {
+  const {
+    site: {
+      siteMetadata: { source },
+    },
+  } = useStaticQuery(graphql`
+    query FooterQuery {
+      site {
+        siteMetadata {
+          source
+        }
+      }
+    }
+  `)
+
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
 
@@ -38,7 +54,22 @@ const Layout = ({ location, children }) => {
           <small>
             © {new Date().getFullYear()}, Built with
             {` `}
-            <a href="https://www.gatsbyjs.com">Gatsby</a>
+            <OutboundLink
+              href="https://www.gatsbyjs.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Gatsby
+            </OutboundLink>
+            . Check out the source code on
+            {` `}
+            <OutboundLink
+              href={source}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Github
+            </OutboundLink>
           </small>
         </footer>
       </StyledLayoutWrapper>

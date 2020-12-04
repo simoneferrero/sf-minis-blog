@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: '.env',
+})
+
 module.exports = {
   siteMetadata: {
     title: `SF Minis Blog`,
@@ -7,9 +11,9 @@ module.exports = {
     },
     description: `A showcase for my painted miniatures.`,
     siteUrl: `https://sfminis.net/`,
+    source: `https://github.com/simoneferrero/sf-minis-blog`,
     social: {
       instagram: `https://instagram.com/sf_minis`,
-      github: `https://github.com/simoneferrero/sf-minis-blog`,
     },
   },
   plugins: [
@@ -54,7 +58,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: process.env.GA_TRACKING_ID,
       },
     },
     `gatsby-plugin-feed`,
@@ -81,5 +85,6 @@ module.exports = {
         },
       },
     },
+    `gatsby-plugin-feed`,
   ],
 }

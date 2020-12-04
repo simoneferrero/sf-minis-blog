@@ -2,136 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
-import styled, { css } from 'styled-components'
+import getReadingTime from 'reading-time'
 
-import Gallery from '../components/Gallery'
-import FeaturedImage from '../components/FeaturedImage'
-import Layout from '../components/Layout'
-import SEO from '../components/Seo'
+import Gallery from '../../components/Gallery'
+import FeaturedImage from '../../components/FeaturedImage'
+import Layout from '../../components/Layout'
+import SEO from '../../components/Seo'
 
-const StyledBlogPost = styled.article`
-  ${({ theme }) => css`
-    text-align: justify;
-
-    header {
-      text-align: center;
-      margin-bottom: ${theme.spacing['12']};
-
-      h1 {
-        margin: ${theme.spacing['0']} ${theme.spacing['0']}
-          ${theme.spacing['4']} ${theme.spacing['0']};
-      }
-
-      p {
-        color: ${theme.color.text};
-        font-size: ${theme.font.size['2']};
-        font-weight: ${theme.font.weight.bold};
-        margin-bottom: 0;
-        margin-top: 12%;
-      }
-    }
-
-    .gallery {
-      margin: ${theme.spacing['8']} ${theme.spacing['0']};
-      text-align: center;
-
-      h3 {
-        font-size: ${theme.font.size['4']};
-        margin-top: ${theme.spacing['0']};
-        margin: ${theme.spacing['4']};
-      }
-    }
-  `}
-`
-
-const StyledBlogPostNav = styled.div`
-  ${({ theme }) => css`
-    .previous,
-    .next {
-      color: ${theme.color.heading};
-      overflow: hidden;
-      position: fixed;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 15vh;
-
-      .thumbnail {
-        background-color: ${theme.color['background-primary']};
-        overflow: hidden;
-        padding: ${theme.spacing['1']};
-        text-align: center;
-        text-overflow: ellipsis;
-        transition: 0.1s linear;
-        white-space: nowrap;
-        width: 15vh;
-
-        .gatsby-image-wrapper > div {
-          padding-bottom: 100% !important;
-        }
-
-        small {
-          font-family: ${theme.font.family.sans};
-          padding: ${theme.spacing['1']};
-        }
-      }
-
-      .arrow {
-        font-size: ${theme.font.size['3']};
-        font-weight: ${theme.font.weight.bold};
-        padding: ${theme.spacing['4']};
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 15vh;
-      }
-
-      &:hover {
-        .thumbnail {
-          transform: translateX(0);
-        }
-      }
-    }
-
-    .previous {
-      left: 0;
-      transform: translateY(-50%);
-
-      .thumbnail {
-        padding-left: 0;
-        transform: translateX(-101%);
-      }
-
-      .arrow {
-        text-align: left;
-      }
-
-      &:hover {
-        .thumbnail {
-          transform: translateX(0);
-        }
-      }
-    }
-
-    .next {
-      right: 0;
-
-      .thumbnail {
-        padding-right: 0;
-        transform: translateX(101%);
-      }
-
-      .arrow {
-        text-align: right;
-      }
-
-      &:hover {
-        .thumbnail {
-          transform: translateX(0);
-        }
-      }
-    }
-  `}
-`
+import { StyledBlogPost, StyledBlogPostNav } from './styled'
 
 const BlogPostTemplate = ({ data, location }) => {
   const {
@@ -141,6 +19,7 @@ const BlogPostTemplate = ({ data, location }) => {
     next,
   } = data
   const { date, description, featuredImage, title, origin } = frontmatter
+  const readingTime = getReadingTime(html)
 
   const images = allFile.edges.map(({ node }) => ({
     name: node.name,
@@ -159,12 +38,15 @@ const BlogPostTemplate = ({ data, location }) => {
             featuredImage={featuredImage}
             isBig
           />
-          <p>
+          <p className="origin">
             <small>{origin}</small>
           </p>
           <h1>
             <span itemProp="headline">{title}</span>
           </h1>
+          <p className="reading-time">
+            <small>{readingTime.text}</small>
+          </p>
         </header>
         <section
           className="body"
