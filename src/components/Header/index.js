@@ -3,7 +3,9 @@ import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled, { css } from 'styled-components'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
+import Facebook from '../../../content/svg/facebook.svg'
 import Instagram from '../../../content/svg/instagram.svg'
+import Twitter from '../../../content/svg/twitter.svg'
 import Logo from '../../../content/svg/logo.svg'
 
 const StyledHeader = styled.header`
@@ -55,8 +57,9 @@ const Header = () => {
         siteMetadata {
           title
           social {
+            facebook
             instagram
-            github
+            twitter
           }
         }
       }
@@ -64,11 +67,19 @@ const Header = () => {
   `)
 
   const { title } = data.site.siteMetadata
-  const { instagram } = data.site.siteMetadata?.social
+  const { facebook, instagram, twitter } = data.site.siteMetadata?.social
   const socials = [
+    {
+      url: facebook,
+      icon: <Facebook />,
+    },
     {
       url: instagram,
       icon: <Instagram />,
+    },
+    {
+      url: twitter,
+      icon: <Twitter />,
     },
   ]
 
