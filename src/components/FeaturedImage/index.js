@@ -10,7 +10,7 @@ const StyledFeaturedImage = styled.div`
     position: relative;
 
     .gatsby-image-wrapper > div {
-      padding-bottom: 100% !important;
+      padding-bottom: ${!isBig && '100% !important'};
     }
 
     .date {
@@ -27,6 +27,17 @@ const StyledFeaturedImage = styled.div`
       text-wrap: wrap;
       transform: translate(-50%, 50%);
       width: 22%;
+
+      ${isBig &&
+      css`
+        height: 20vw;
+        width: 20vw;
+
+        @media screen and (min-width: ${theme['media-queries'].tablet}) {
+          height: 150px;
+          width: 150px;
+        }
+      `}
 
       > div {
         display: grid;
