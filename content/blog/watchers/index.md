@@ -18,7 +18,7 @@ This is actually really good news for the future, when more and more expansions 
 
 ![Expansions](./watchers_08.jpg)
 
-> Does anyone have some spare closet space for me to borow?
+> Does anyone have some spare closet space for me to borrow?
 
 ---
 
