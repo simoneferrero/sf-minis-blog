@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
 		@font-face {
 			font-family: "AsimoneBrush";
 			src: url("${AsimoneBrush}");
+			font-display: swap;
 		}
 
 		/* HTML elements */

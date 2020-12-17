@@ -89,5 +89,13 @@ module.exports = {
     },
     `gatsby-plugin-feed`,
     `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.sfminis.net',
+        sitemap: 'https://www.sfminis.net/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
+      },
+    },
   ],
 }

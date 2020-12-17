@@ -70,16 +70,19 @@ const Header = () => {
   const { facebook, instagram, twitter } = data.site.siteMetadata?.social
   const socials = [
     {
-      url: facebook,
       icon: <Facebook />,
+      text: 'Facebook',
+      url: facebook,
     },
     {
-      url: instagram,
       icon: <Instagram />,
+      text: 'Instagram',
+      url: instagram,
     },
     {
-      url: twitter,
       icon: <Twitter />,
+      text: 'Twitter',
+      url: twitter,
     },
   ]
 
@@ -89,12 +92,13 @@ const Header = () => {
         <StyledLogo alt={title} />
       </StyledLink>
       <StyledSocial>
-        {socials.map(({ url, icon }) => (
+        {socials.map(({ icon, text, url }) => (
           <OutboundLink
             href={url}
             rel="noopener noreferrer"
             key={url}
             target="_blank"
+            title={text}
           >
             {icon}
           </OutboundLink>

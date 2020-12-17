@@ -55,7 +55,7 @@ const PostListItem = ({
 }) => {
   return (
     <StyledPostListItem>
-      <Link to={slug} itemProp="url">
+      <Link to={slug} itemProp="url" title={title}>
         <article itemScope itemType="http://schema.org/Article">
           <FeaturedImage
             date={date}
