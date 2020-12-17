@@ -24,7 +24,7 @@ const StyledLayoutWrapper = styled.div`
       max-width: ${theme['max-width'].wrapper};
 
       a {
-        font-weight: ${theme.font.weight.bold};
+        color: ${theme.color.heading};
       }
     }
   `}
