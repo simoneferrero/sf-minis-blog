@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import styled, { css } from 'styled-components'
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
 
 import Facebook from '../../../content/svg/facebook.svg'
 import Instagram from '../../../content/svg/instagram.svg'
