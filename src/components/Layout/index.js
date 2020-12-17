@@ -22,6 +22,10 @@ const StyledLayoutWrapper = styled.div`
     footer {
       margin: ${theme.spacing['0']} auto;
       max-width: ${theme['max-width'].wrapper};
+
+      a {
+        font-weight: ${theme.font.weight.bold};
+      }
     }
   `}
 `
