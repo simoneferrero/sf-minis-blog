@@ -1,0 +1,5 @@
+{
+  "baseUrl": "http://localhost:7000/",
+  "retries": 2,
+  "chromeWebSecurity": false
+}

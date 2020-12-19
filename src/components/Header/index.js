@@ -17,6 +17,10 @@ const StyledHeader = styled.header`
   > * {
     align-self: center;
   }
+
+  h1 {
+    margin: 0 auto;
+  }
 `
 
 const StyledLogo = styled(Logo)`
@@ -89,14 +93,17 @@ const Header = () => {
   return (
     <StyledHeader>
       <StyledLink to="/">
-        <StyledLogo alt={title} />
+        <h1>
+          <StyledLogo alt={title} />
+        </h1>
       </StyledLink>
       <StyledSocial>
         {socials.map(({ icon, text, url }) => (
           <OutboundLink
+            data-testid="socialUrl"
             href={url}
-            rel="noopener noreferrer"
             key={url}
+            rel="noopener noreferrer"
             target="_blank"
             title={text}
           >

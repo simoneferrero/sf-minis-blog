@@ -34,9 +34,9 @@ const BlogPostTemplate = ({ data, location }) => {
         <header>
           <FeaturedImage
             date={date}
-            description={description}
             featuredImage={featuredImage}
             isBig
+            title={title}
           />
           <p className="origin">
             <small>{origin}</small>
@@ -55,7 +55,7 @@ const BlogPostTemplate = ({ data, location }) => {
         />
         <hr />
         <section className="gallery">
-          <h3>Gallery</h3>
+          <h1>Gallery</h1>
           <Gallery images={images} />
         </section>
         <hr />

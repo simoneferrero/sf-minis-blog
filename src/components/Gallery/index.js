@@ -46,7 +46,7 @@ const StyledCoverWrapper = styled.div`
       position: absolute;
       text-align: center;
 
-      h5 {
+      h2 {
         font-size: ${theme.font.size['2']};
         margin-top: ${theme.spacing['6']};
       }
@@ -128,7 +128,7 @@ const Gallery = ({ images }) => {
               fluid={selectedImage.full}
               alt={selectedImage.name}
             />
-            <h5>{selectedImage.name}</h5>
+            <h2>{selectedImage.name}</h2>
           </div>
           {selectedImageIndex > 0 && (
             <StyledButton

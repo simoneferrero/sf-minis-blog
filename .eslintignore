@@ -6,7 +6,7 @@ cypress/screenshots
 logs
 mochawesome-report
 metrics
-package.json
+*.json
 
 .cache
 content
