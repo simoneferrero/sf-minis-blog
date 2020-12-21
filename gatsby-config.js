@@ -97,5 +97,11 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `sfminis`,
+      },
+    },
   ],
 }

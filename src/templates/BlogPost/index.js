@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import getReadingTime from 'reading-time'
+import { Disqus } from 'gatsby-plugin-disqus'
 
 import Gallery from '../../components/Gallery'
 import FeaturedImage from '../../components/FeaturedImage'
@@ -14,7 +15,7 @@ import { StyledBlogPost, StyledBlogPostNav } from './styled'
 const BlogPostTemplate = ({ data, location }) => {
   const {
     allFile,
-    markdownRemark: { frontmatter, html },
+    markdownRemark: { frontmatter, html, id },
     previous,
     next,
   } = data
@@ -97,6 +98,13 @@ const BlogPostTemplate = ({ data, location }) => {
           </Link>
         )}
       </StyledBlogPostNav>
+      <Disqus
+        config={{
+          url: location.href,
+          identifier: id,
+          title: title,
+        }}
+      />
     </Layout>
   )
 }
@@ -117,6 +125,7 @@ BlogPostTemplate.propTypes = {
       ).isRequired,
     }).isRequired,
     markdownRemark: PropTypes.shape({
+      id: PropTypes.string.isRequired,
       html: PropTypes.string.isRequired,
       frontmatter: PropTypes.shape({
         date: PropTypes.string.isRequired,
@@ -175,6 +184,7 @@ export const pageQuery = graphql`
       }
     }
     markdownRemark(id: { eq: $id }) {
+      id
       html
       frontmatter {
         title
