@@ -59,6 +59,7 @@ const Layout = ({ location, children }) => {
             © {new Date().getFullYear()}, Built with
             {` `}
             <OutboundLink
+              data-testid="footerLink"
               href="https://www.gatsbyjs.com"
               rel="noopener noreferrer"
               target="_blank"
@@ -68,6 +69,7 @@ const Layout = ({ location, children }) => {
             . Check out the source code on
             {` `}
             <OutboundLink
+              data-testid="footerLink"
               href={source}
               rel="noopener noreferrer"
               target="_blank"

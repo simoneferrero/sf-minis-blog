@@ -34,9 +34,9 @@ const BlogPostTemplate = ({ data, location }) => {
         <header>
           <FeaturedImage
             date={date}
-            description={description}
             featuredImage={featuredImage}
             isBig
+            title={title}
           />
           <p className="origin">
             <small>{origin}</small>
@@ -52,17 +52,23 @@ const BlogPostTemplate = ({ data, location }) => {
           className="body"
           dangerouslySetInnerHTML={{ __html: html }}
           itemProp="articleBody"
+          title="Article body"
         />
         <hr />
         <section className="gallery">
-          <h3>Gallery</h3>
+          <h1>Gallery</h1>
           <Gallery images={images} />
         </section>
         <hr />
       </StyledBlogPost>
       <StyledBlogPostNav>
         {previous && (
-          <Link className="previous" to={previous.fields.slug} rel="prev">
+          <Link
+            className="previous"
+            to={previous.fields.slug}
+            rel="prev"
+            title={`Go to ${previous.frontmatter.title}`}
+          >
             <div className="arrow">←</div>
             <div className="thumbnail">
               <Img
@@ -74,7 +80,12 @@ const BlogPostTemplate = ({ data, location }) => {
           </Link>
         )}
         {next && (
-          <Link className="next" to={next.fields.slug} rel="prev">
+          <Link
+            className="next"
+            to={next.fields.slug}
+            rel="prev"
+            title={`Go to ${next.frontmatter.title}`}
+          >
             <div className="arrow">→</div>
             <div className="thumbnail">
               <Img

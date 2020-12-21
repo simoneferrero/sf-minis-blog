@@ -1,0 +1,16 @@
+name: End-to-end tests
+on: [push]
+jobs:
+  cypress-run:
+    name: Cypress run
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Run tests
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          build: npm run build
+          start: 'npm run test:cy:ci'
+          wait-on: http://localhost:7000

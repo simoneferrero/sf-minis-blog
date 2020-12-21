@@ -71,12 +71,12 @@ const StyledFeaturedImage = styled.div`
   `}
 `
 
-const FeaturedImage = ({ date, description, featuredImage, isBig }) => {
+const FeaturedImage = ({ date, featuredImage, isBig, title }) => {
   const [day, month, year] = date.split(' ')
   return (
     <StyledFeaturedImage isBig={isBig}>
-      <Img fluid={featuredImage.childImageSharp.fluid} alt={description} />
-      <section className="date">
+      <Img fluid={featuredImage.childImageSharp.fluid} alt={title} />
+      <section className="date" data-testid={`date-${date}`}>
         <div>
           <Frame />
           <p>
@@ -94,13 +94,13 @@ const FeaturedImage = ({ date, description, featuredImage, isBig }) => {
 
 FeaturedImage.propTypes = {
   date: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
   featuredImage: PropTypes.shape({
     childImageSharp: PropTypes.shape({
       fluid: PropTypes.object.isRequired,
     }).isRequired,
   }).isRequired,
   isBig: PropTypes.bool,
+  title: PropTypes.string.isRequired,
 }
 
 export default FeaturedImage

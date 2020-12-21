@@ -22,7 +22,7 @@ export const StyledBlogPost = styled.article`
         }
 
         &.reading-time {
-          color: ${theme.color.primary};
+          color: ${theme.color.text};
           font-size: ${theme.font.size['1']};
           font-style: italic;
           font-weight: ${theme.font.weight.bold};
@@ -34,7 +34,8 @@ export const StyledBlogPost = styled.article`
       margin: ${theme.spacing['8']} ${theme.spacing['0']};
       text-align: center;
 
-      h3 {
+      h1 {
+        color: ${theme.color.heading};
         font-size: ${theme.font.size['4']};
         margin-top: ${theme.spacing['0']};
         margin: ${theme.spacing['4']};

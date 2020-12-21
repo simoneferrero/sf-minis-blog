@@ -3,7 +3,7 @@ title: 'First Post'
 date: '2020-12-03T19:27:25.523Z'
 description: 'Humble beginnings of a beginner miniature painter.'
 featuredImage: './first-post_01.jpg'
-origin: ''
+origin: 'Beginnings'
 ---
 
 Hello, dear reader! Thank you for landing on my humble blog.

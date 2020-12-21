@@ -45,22 +45,15 @@ const StyledPostListItem = styled.li`
   `}
 `
 
-const PostListItem = ({
-  date,
-  description,
-  origin,
-  featuredImage,
-  slug,
-  title,
-}) => {
+const PostListItem = ({ date, origin, featuredImage, slug, title }) => {
   return (
-    <StyledPostListItem>
+    <StyledPostListItem data-testid="postListItem">
       <Link to={slug} itemProp="url" title={title}>
         <article itemScope itemType="http://schema.org/Article">
           <FeaturedImage
             date={date}
-            description={description}
             featuredImage={featuredImage}
+            title={title}
           />
           <header className="title">
             <p>
@@ -78,7 +71,6 @@ const PostListItem = ({
 
 PostListItem.propTypes = {
   date: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
   origin: PropTypes.string.isRequired,
   featuredImage: PropTypes.object.isRequired,
   slug: PropTypes.string.isRequired,
