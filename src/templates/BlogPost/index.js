@@ -52,6 +52,7 @@ const BlogPostTemplate = ({ data, location }) => {
           className="body"
           dangerouslySetInnerHTML={{ __html: html }}
           itemProp="articleBody"
+          title="Article body"
         />
         <hr />
         <section className="gallery">
@@ -62,7 +63,12 @@ const BlogPostTemplate = ({ data, location }) => {
       </StyledBlogPost>
       <StyledBlogPostNav>
         {previous && (
-          <Link className="previous" to={previous.fields.slug} rel="prev">
+          <Link
+            className="previous"
+            to={previous.fields.slug}
+            rel="prev"
+            title={`Go to ${previous.frontmatter.title}`}
+          >
             <div className="arrow">←</div>
             <div className="thumbnail">
               <Img
@@ -74,7 +80,12 @@ const BlogPostTemplate = ({ data, location }) => {
           </Link>
         )}
         {next && (
-          <Link className="next" to={next.fields.slug} rel="prev">
+          <Link
+            className="next"
+            to={next.fields.slug}
+            rel="prev"
+            title={`Go to ${next.frontmatter.title}`}
+          >
             <div className="arrow">→</div>
             <div className="thumbnail">
               <Img

@@ -92,9 +92,9 @@ const Header = () => {
 
   return (
     <StyledHeader>
-      <StyledLink to="/">
+      <StyledLink to="/" title={title}>
         <h1>
-          <StyledLogo alt={title} />
+          <StyledLogo />
         </h1>
       </StyledLink>
       <StyledSocial>

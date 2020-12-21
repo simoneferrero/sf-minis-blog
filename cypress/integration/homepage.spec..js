@@ -58,6 +58,7 @@ describe('Given the homepage', () => {
           .findByTitle(title)
           .should('have.attr', 'href')
           .and('include', href)
+        cy.wrap(item).findByAltText(title).should('exist')
         cy.wrap(item).findByText(title).should('exist')
         cy.wrap(item).findByText(origin).should('exist')
         cy.wrap(item).findByTestId(`date-${date}`).should('exist')

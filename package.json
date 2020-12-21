@@ -82,7 +82,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "lint": "eslint \"src\"",
     "serve": "gatsby serve",
-    "serve:cy": "yarn build && yarn serve -p 7000",
+    "serve:cy": "yarn clean && yarn build && yarn serve -p 7000",
     "start": "yarn develop",
     "start:cy": "yarn develop -p 7000",
     "test": "start-server-and-test start:cy http://localhost:7000 cy:open",
