@@ -15,7 +15,7 @@ describe("Given a post's page", () => {
       it('should return to the homepage', () => {
         cy.findByTitle('SF Minis Blog').click()
 
-        cy.location('pathname').should('equal', '/')
+        cy.url().should('not.include', '/belthir/')
       })
     })
 
@@ -23,7 +23,7 @@ describe("Given a post's page", () => {
       it('should return to the homepage', () => {
         cy.go('back')
 
-        cy.location('pathname').should('equal', '/')
+        cy.url().should('not.include', '/belthir/')
       })
     })
   })
@@ -55,6 +55,9 @@ describe("Given a post's page", () => {
           .scrollIntoView()
           .should('be.visible')
       })
+
+      // Comments
+      cy.get('#disqus_thread').scrollIntoView().should('be.visible')
 
       // Post navigation
       cy.findByTitle('Go to Watchers')
