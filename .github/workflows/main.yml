@@ -1,23 +1,16 @@
 name: End-to-end tests
-on: [push, pull_request]
+on: [push]
 jobs:
-  parallel-runs-across-platforms:
-    name: every OS
-    strategy:
-      matrix:
-        os: ['ubuntu-latest', 'windows-latest', 'macos-latest']
-        machines: [1, 2]
-    runs-on: ${{ matrix.os }}
+  cypress-run:
+    name: Cypress run
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Run tests
-        uses: cypress-io/github-action@v1
-        timeout-minutes: 10
+        uses: cypress-io/github-action@v2
         with:
-          record: true
-          parallel: true
-          group: Parallel 2x on ${{ matrix.os }}
-          start: npm test:ci
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets.dashboardRecordKey }}
+          browser: chrome
+          build: npm run build
+          start: 'npm run test:cy:ci'
+          wait-on: http://localhost:7000

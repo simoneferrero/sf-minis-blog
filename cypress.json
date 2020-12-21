@@ -3,5 +3,7 @@
   "retries": 2,
   "chromeWebSecurity": false,
   "fixturesFolder": false,
-  "pluginsFile": false
+  "pluginsFile": false,
+  "videoUploadOnPasses": false,
+  "screenshotOnRunFailure": false
 }
