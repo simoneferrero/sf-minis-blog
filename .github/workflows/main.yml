@@ -10,7 +10,12 @@ jobs:
       - name: Run tests
         uses: cypress-io/github-action@v2
         with:
+          record: true
+          parallel: true
           browser: chrome
           build: npm run build
           start: 'npm run test:cy:ci'
-          wait-on: http://localhost:7000
+          wait-on: http://localhost:7070
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
