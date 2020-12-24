@@ -12,6 +12,12 @@ describe('Given the homepage', () => {
   it('should display all posts', () => {
     const posts = [
       {
+        title: 'Cave Spiders',
+        origin: 'Descent: Journeys in the Dark - Second Edition',
+        date: '24 Dec 2020',
+        href: 'cave-spiders',
+      },
+      {
         title: 'Striders',
         origin: 'Horizon Zero Dawn - The Board Game',
         date: '20 Dec 2020',
