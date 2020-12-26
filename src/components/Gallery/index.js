@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 
 import Close from '../../../content/svg/close.svg'
+import Button from '../Button'
 
 import {
   StyledThumbnailWrapper,
-  StyledButton,
   StyledCoverWrapper,
   StyledFullImage,
 } from './styled'
@@ -24,24 +24,24 @@ const Gallery = ({ images }) => {
         {images
           .sort((a, b) => (a.name < b.name ? -1 : 1))
           .map(image => (
-            <StyledButton
+            <Button
               aria-label={`Display image ${image.name}`}
               key={image.thumb.src}
               onClick={() => setSelectedImage(image)}
             >
               <Img fluid={image.thumb} alt={image.name} />
-            </StyledButton>
+            </Button>
           ))}
       </StyledThumbnailWrapper>
       {selectedImage ? (
         <StyledCoverWrapper hidden={!selectedImage}>
-          <StyledButton
+          <Button
             aria-label="Close gallery view"
             className="background-image-close"
             onClick={() => setSelectedImage(null)}
           >
             <Close />
-          </StyledButton>
+          </Button>
           <div className="image-wrapper">
             <StyledFullImage
               fluid={selectedImage.full}
@@ -50,22 +50,22 @@ const Gallery = ({ images }) => {
             <h2>{selectedImage.name}</h2>
           </div>
           {selectedImageIndex > 0 && (
-            <StyledButton
+            <Button
               className="arrow prev"
               title="Show previous image"
               onClick={() => setSelectedImage(images[selectedImageIndex - 1])}
             >
               ←
-            </StyledButton>
+            </Button>
           )}
           {selectedImageIndex < images.length - 1 && (
-            <StyledButton
+            <Button
               className="arrow next"
               title="Show next image"
               onClick={() => setSelectedImage(images[selectedImageIndex + 1])}
             >
               →
-            </StyledButton>
+            </Button>
           )}
         </StyledCoverWrapper>
       ) : null}
