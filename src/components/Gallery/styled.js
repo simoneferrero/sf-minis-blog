@@ -77,13 +77,3 @@ export const StyledFullImage = styled(Img)`
     object-fit: contain !important;
   }
 `
-
-export const StyledButton = styled.button`
-  background: none;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-  font: inherit;
-  outline: inherit;
-  padding: 0;
-`

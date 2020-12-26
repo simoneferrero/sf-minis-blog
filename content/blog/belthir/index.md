@@ -4,6 +4,13 @@ date: '2020-12-15T17:42:57.510Z'
 description: 'A powerful foe that was more satisfying to paint than I had imagined.'
 featuredImage: './belthir_01.jpg'
 origin: 'Descent: Journeys in the Dark - Second Edition'
+colors: '{
+  "Skin & hair": ["Army Painter Dragon Red", "Army Painter Pure Red", "Army Painter Dark Tone Quickwash", "Army Painter Hardened Carapace"],
+  "Bone": ["Army Painter Brainmatter Beige", "Army Painter Werewolf Fur", "Army Painter Strong Tone Quickwash"],
+  "Armor": ["Army Painter Chaotic Red + Vallejo Metal Medium", "Army Painter Blue Tone Quickwash", "Army Painter Grimoire Purple", "Army Painter Elemental Bolt"],
+  "Belt & sash": ["Army Painter Leader Brown", "Army Painter Werewolf Fur", "Army Painter Chaotic Red", "Army Painter Pixie Pink + Army Painter Matt White", "Army Painter Pure Red", "Army Painter Dragon Red + Vallejo Glazing Medium"],
+  "Leg wraps": ["Army Painter Hardened Carapace", "Army Painter Dark Tone Quickwash"]
+}'
 ---
 
 I painted Belthir a few weeks ago, and so far it has been the most satisfying paint job I've done. It went from a near-failed experiment, to something that I am really proud to showcase and look at, and most important of all I spent probably the least amount of time on it than I have on any other mini or group.

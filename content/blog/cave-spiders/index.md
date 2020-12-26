@@ -4,6 +4,12 @@ date: '2020-12-24T17:35:41.877Z'
 description: 'Too many legs, if you ask me.'
 featuredImage: './cave-spiders_01.jpg'
 origin: 'Descent: Journeys in the Dark - Second Edition'
+colors: '{
+  "Body & legs": ["Army Painter Matt White + Army Painter Matt Black", "Army Painter Uniform Grey"],
+  "Eyes & mouth": ["Army Painter Voidshield Blue", "Army Painter Scar Tissue"],
+  "Body drawing": ["Army Painter Pure Red + Army Painter Scar Tissue", "Army Painter Scar Tissue + Army Painter Matt White"],
+  "Web effect": ["UHU Glue"]
+}'
 ---
 
 This week, to bounce back from the relative disappointment of the Striders, I decided to paint some miniatures I was not too attached to. I didn't want to spend ages thinking about the colour scheme, or hours blending colours to perfection; I just wanted to get some painting done on a group of miniatures that comes up often enough in quests to justify the effort even if they are not my personal favourites. The perfect candidates were the Cave Spiders from the base game.

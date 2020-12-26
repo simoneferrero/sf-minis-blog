@@ -5,6 +5,7 @@ import Img from 'gatsby-image'
 import getReadingTime from 'reading-time'
 import { Disqus } from 'gatsby-plugin-disqus'
 
+import ColorsDropdown from '../../components/ColorsDropdown'
 import Gallery from '../../components/Gallery'
 import FeaturedImage from '../../components/FeaturedImage'
 import Layout from '../../components/Layout'
@@ -19,7 +20,14 @@ const BlogPostTemplate = ({ data, location }) => {
     previous,
     next,
   } = data
-  const { date, description, featuredImage, title, origin } = frontmatter
+  const {
+    colors,
+    date,
+    description,
+    featuredImage,
+    title,
+    origin,
+  } = frontmatter
   const readingTime = getReadingTime(html)
 
   const images = allFile.edges.map(({ node }) => ({
@@ -27,6 +35,8 @@ const BlogPostTemplate = ({ data, location }) => {
     thumb: node.childImageSharp.thumb,
     full: node.childImageSharp.full,
   }))
+
+  const parsedColors = colors && JSON.parse(colors)
 
   return (
     <Layout location={location} title={title}>
@@ -55,6 +65,8 @@ const BlogPostTemplate = ({ data, location }) => {
           itemProp="articleBody"
           title="Article body"
         />
+        <hr />
+        <ColorsDropdown colors={parsedColors} />
         <hr />
         <section className="gallery">
           <h1>Gallery</h1>
@@ -128,6 +140,7 @@ BlogPostTemplate.propTypes = {
       id: PropTypes.string.isRequired,
       html: PropTypes.string.isRequired,
       frontmatter: PropTypes.shape({
+        colors: PropTypes.string,
         date: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
@@ -198,6 +211,7 @@ export const pageQuery = graphql`
             }
           }
         }
+        colors
       }
     }
     allFile(

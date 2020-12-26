@@ -48,6 +48,15 @@ describe("Given a post's page", () => {
       cy.findByText(`4 min read`).scrollIntoView().should('be.visible')
       cy.findByTitle(`Article body`).scrollIntoView().should('be.visible')
 
+      // Colors elements
+      cy.findByText('Colors').scrollIntoView().should('be.visible')
+      cy.findByText('(↓ Expand ↓)').should('be.visible')
+      cy.findByText('(↑ Collapse ↑)').should('not.exist')
+      cy.findByText('Skin & hair').should('not.be.visible')
+      cy.findByText(
+        'Army Painter Dragon Red, Army Painter Pure Red, Army Painter Dark Tone Quickwash, Army Painter Hardened Carapace',
+      ).should('not.be.visible')
+
       // Gallery elements
       cy.findByText('Gallery').scrollIntoView().should('be.visible')
       cy.wrap([...Array(5).keys()]).each(key => {
@@ -105,6 +114,42 @@ describe("Given a post's page", () => {
 
             cy.location('pathname').should('equal', '/belthir/')
           })
+        })
+      })
+    })
+
+    describe('and the user expands the colors tab', () => {
+      beforeEach(() => {
+        cy.findByText('Colors').scrollIntoView().should('be.visible').click()
+      })
+
+      it('should display the table of colors', () => {
+        cy.findByText('(↓ Expand ↓)').should('not.exist')
+        cy.findByText('(↑ Collapse ↑)').should('be.visible')
+        cy.findByText('Skin & hair').should('be.visible')
+        cy.findByText(
+          'Army Painter Dragon Red, Army Painter Pure Red, Army Painter Dark Tone Quickwash, Army Painter Hardened Carapace',
+        ).should('be.visible')
+        cy.findByText('Bone').should('be.visible')
+        cy.findByText(
+          'Army Painter Brainmatter Beige, Army Painter Werewolf Fur, Army Painter Strong Tone Quickwash',
+        ).should('be.visible')
+      })
+
+      describe('and the user collapses the colors tab', () => {
+        it('should NOT display the table of colors', () => {
+          cy.findByText('Colors').scrollIntoView().should('be.visible').click()
+
+          cy.findByText('(↓ Expand ↓)').should('be.visible')
+          cy.findByText('(↑ Collapse ↑)').should('not.exist')
+          cy.findByText('Skin & hair').should('not.be.visible')
+          cy.findByText(
+            'Army Painter Dragon Red, Army Painter Pure Red, Army Painter Dark Tone Quickwash, Army Painter Hardened Carapace',
+          ).should('not.be.visible')
+          cy.findByText('Bone').should('not.be.visible')
+          cy.findByText(
+            'Army Painter Brainmatter Beige, Army Painter Werewolf Fur, Army Painter Strong Tone Quickwash',
+          ).should('not.be.visible')
         })
       })
     })
