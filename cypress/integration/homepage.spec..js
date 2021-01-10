@@ -12,6 +12,12 @@ describe('Given the homepage', () => {
   it('should display all posts', () => {
     const posts = [
       {
+        title: 'Karnon',
+        origin: 'Descent: Journeys in the Dark - Second Edition',
+        date: '10 Jan 2021',
+        href: 'karnon',
+      },
+      {
         title: 'Valyndra',
         origin: 'Descent: Journeys in the Dark - Second Edition',
         date: '29 Dec 2020',

@@ -46,6 +46,7 @@ describe("Given a post's page", () => {
         .should('be.visible')
       cy.findByText('Belthir').scrollIntoView().should('be.visible')
       cy.findByText(`4 min read`).scrollIntoView().should('be.visible')
+      cy.findByTestId('Belthir-video').scrollIntoView().should('be.visible')
       cy.findByTitle(`Article body`).scrollIntoView().should('be.visible')
 
       // Colors elements

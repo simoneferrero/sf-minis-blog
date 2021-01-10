@@ -10,8 +10,9 @@ import Gallery from '../../components/Gallery'
 import FeaturedImage from '../../components/FeaturedImage'
 import Layout from '../../components/Layout'
 import SEO from '../../components/Seo'
+import Video from '../../components/Video'
 
-import { StyledBlogPost, StyledBlogPostNav } from './styled'
+import { StyledBlogPost, StyledBlogPostNav, StyledVideoSection } from './styled'
 
 const BlogPostTemplate = ({ data, location }) => {
   const {
@@ -27,6 +28,7 @@ const BlogPostTemplate = ({ data, location }) => {
     featuredImage,
     title,
     origin,
+    videoSrcURL,
   } = frontmatter
   const readingTime = getReadingTime(html)
 
@@ -59,6 +61,12 @@ const BlogPostTemplate = ({ data, location }) => {
             <small>{readingTime.text}</small>
           </p>
         </header>
+        {videoSrcURL && (
+          <StyledVideoSection className="video">
+            <Video videoSrcURL={videoSrcURL} videoTitle={title} />
+            <hr />
+          </StyledVideoSection>
+        )}
         <section
           className="body"
           dangerouslySetInnerHTML={{ __html: html }}
@@ -150,6 +158,7 @@ BlogPostTemplate.propTypes = {
             fluid: PropTypes.object.isRequired,
           }).isRequired,
         }).isRequired,
+        videoSrcURL: PropTypes.string,
       }).isRequired,
     }).isRequired,
     next: PropTypes.shape({
@@ -212,6 +221,7 @@ export const pageQuery = graphql`
           }
         }
         colors
+        videoSrcURL
       }
     }
     allFile(

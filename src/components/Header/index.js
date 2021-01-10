@@ -6,6 +6,7 @@ import { OutboundLink } from 'gatsby-plugin-google-gtag'
 import Facebook from '../../../content/svg/facebook.svg'
 import Instagram from '../../../content/svg/instagram.svg'
 import Twitter from '../../../content/svg/twitter.svg'
+import Youtube from '../../../content/svg/youtube.svg'
 import Logo from '../../../content/svg/logo.svg'
 
 const StyledHeader = styled.header`
@@ -64,6 +65,7 @@ const Header = () => {
             facebook
             instagram
             twitter
+            youtube
           }
         }
       }
@@ -71,7 +73,12 @@ const Header = () => {
   `)
 
   const { title } = data.site.siteMetadata
-  const { facebook, instagram, twitter } = data.site.siteMetadata?.social
+  const {
+    facebook,
+    instagram,
+    twitter,
+    youtube,
+  } = data.site.siteMetadata?.social
   const socials = [
     {
       icon: <Facebook />,
@@ -87,6 +94,11 @@ const Header = () => {
       icon: <Twitter />,
       text: 'Twitter',
       url: twitter,
+    },
+    {
+      icon: <Youtube />,
+      text: 'Youtube',
+      url: youtube,
     },
   ]
 
