@@ -16,6 +16,7 @@ module.exports = {
       facebook: `https://facebook.com/sfminis`,
       instagram: `https://instagram.com/sf_minis`,
       twitter: `https://twitter.com/sfminis`,
+      youtube: `https://www.youtube.com/channel/UCKs5Bp-q-eFfwqtFIw5AypQ`,
     },
   },
   plugins: [

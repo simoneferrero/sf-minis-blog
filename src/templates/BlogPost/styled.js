@@ -132,3 +132,9 @@ export const StyledBlogPostNav = styled.div`
     }
   `}
 `
+
+export const StyledVideoSection = styled.section`
+  ${({ theme }) => css`
+    margin-bottom: ${theme.spacing['12']};
+  `}
+`

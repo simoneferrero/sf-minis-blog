@@ -104,8 +104,10 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type Social {
+      facebook: String
       instagram: String
-      github: String
+      twitter: String
+      youtube: String
     }
 
     type MarkdownRemark implements Node {
@@ -119,6 +121,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       date: Date @dateformat
       origin: String
       colors: String
+      videoSrcURL: String
     }
 
     type Fields {

@@ -11,6 +11,7 @@ colors: '{
   "Bone & skulls": ["Army Painter Brainmatter Beige + Army Painter Leather Brown", "Citadel Contrast Skeleton Horde"],
   "Rock & lava": ["Army Painter Matt Black + Army Painter Matt White", "Army Painter Pure Red", "Army Painter Mythical Orange", "Army Painter Daemonic Yellow"]
 }'
+videoSrcURL: 'https://www.youtube.com/embed/u1KWQCymos0'
 ---
 
 Oh boy, was this mini one I was looking forward to painting! Valyndra, the Queen of Dragons and (in my opinion at least) one of the best scuplts of the game!
