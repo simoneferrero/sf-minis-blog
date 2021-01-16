@@ -104,5 +104,6 @@ module.exports = {
         shortname: `sfminis`,
       },
     },
+    'gatsby-plugin-catch-links',
   ],
 }
