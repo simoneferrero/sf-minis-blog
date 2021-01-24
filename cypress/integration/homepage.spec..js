@@ -12,6 +12,12 @@ describe('Given the homepage', () => {
   it('should display all posts', () => {
     const posts = [
       {
+        title: 'Lord Merick Farrow',
+        origin: 'Descent: Journeys in the Dark - Second Edition',
+        date: '24 Jan 2021',
+        href: 'lord-merick-farrow',
+      },
+      {
         title: 'Elder Mok',
         origin: 'Descent: Journeys in the Dark - Second Edition',
         date: '16 Jan 2021',
