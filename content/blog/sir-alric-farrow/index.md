@@ -18,7 +18,7 @@ I have to admit that I was not enthusiastic about the project. I have probably b
 
 ---
 
-As for Sir Alric, I initially debated whether to try a NMM approach over his entire armor. I have very, **VERY** little experience with NMM and I thought I would have to start at some point... but the thought of spending all that time on basically 80% of this miniature always put me off. To be clear, this is not a terrible sculpt! I think some circumstances just make it less appealing to me, but I can see how it can be quite fun to try that approach if you already know what you are doing. But I don't really, and I honestly wanted something done quickly, so I decided to try my new Vallejo metallics and boy, did they come through!
+As for Sir Alric, I initially debated whether to try a Non-Metallic Metal approach over his entire armor. I have very, **VERY** little experience with NMM and I thought I would have to start at some point... but the thought of spending all that time on basically 80% of this miniature always put me off. To be clear, this is not a terrible sculpt! I think some circumstances just make it less appealing to me, but I can see how it can be quite fun to try that approach if you already know what you are doing. But I don't really, and I honestly wanted something done quickly, so I decided to try my new Vallejo metallics and boy, did they come through!
 
 Let's start from the beginning: I primed the mini white, because I felt that having zenithal highlights would not really be too beneficial with metallics. It was a good choice as I basically had to just lay 1 or 2 layers to get the colour I wanted.
 
