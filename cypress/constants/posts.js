@@ -1,5 +1,11 @@
 const posts = [
   {
+    title: 'Sir Alric Farrow',
+    origin: 'Descent: Journeys in the Dark - Second Edition',
+    date: '12 Feb 2021',
+    href: 'sir-alric-farrow',
+  },
+  {
     title: 'Lady Eliza Farrow',
     origin: 'Descent: Journeys in the Dark - Second Edition',
     date: '06 Feb 2021',
