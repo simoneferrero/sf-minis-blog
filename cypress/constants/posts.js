@@ -1,5 +1,11 @@
 const posts = [
   {
+    title: 'Darth Vader',
+    origin: 'Imperial Assault',
+    date: '15 Feb 2021',
+    href: 'darth-vader',
+  },
+  {
     title: 'Sir Alric Farrow',
     origin: 'Descent: Journeys in the Dark - Second Edition',
     date: '12 Feb 2021',
