@@ -3,7 +3,7 @@ title: 'Darth Vader'
 date: '2021-02-15T23:35:12.649Z'
 description: 'The most compelling villain in cinema history.'
 featuredImage: './darth-vader_01.jpg'
-origin: 'Imperial Assault'
+origin: 'Star Wars: Imperial Assault'
 colors: '{
   "Leather & Armor": ["AP Matt Black", "AP Wolf Grey", "AP Dragon Red", "AP Mythical Orange", "AP Matt White"],
   "Lightsaber": ["AP Matt Black", "VCG Chainmail Silver", "AP Matt White", "AP Dragon Red", "AP Mythical Orange"]
