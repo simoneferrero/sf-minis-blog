@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import getReadingTime from 'reading-time'
 import { Disqus } from 'gatsby-plugin-disqus'
 
@@ -92,8 +92,11 @@ const BlogPostTemplate = ({ data, location }) => {
           >
             <div className="arrow">←</div>
             <div className="thumbnail">
-              <Img
-                fluid={previous.frontmatter.featuredImage.childImageSharp.fluid}
+              <GatsbyImage
+                image={
+                  previous.frontmatter.featuredImage.childImageSharp
+                    .gatsbyImageData
+                }
                 alt={`Go to ${previous.frontmatter.title}`}
               />
               <small>{previous.frontmatter.title}</small>
@@ -109,8 +112,10 @@ const BlogPostTemplate = ({ data, location }) => {
           >
             <div className="arrow">→</div>
             <div className="thumbnail">
-              <Img
-                fluid={next.frontmatter.featuredImage.childImageSharp.fluid}
+              <GatsbyImage
+                image={
+                  next.frontmatter.featuredImage.childImageSharp.gatsbyImageData
+                }
                 alt={`Go to ${next.frontmatter.title}`}
               />
               <small>{next.frontmatter.title}</small>
@@ -155,7 +160,7 @@ BlogPostTemplate.propTypes = {
         origin: PropTypes.string.isRequired,
         featuredImage: PropTypes.shape({
           childImageSharp: PropTypes.shape({
-            fluid: PropTypes.object.isRequired,
+            gatsbyImageData: PropTypes.object.isRequired,
           }).isRequired,
         }).isRequired,
         videoSrcURL: PropTypes.string,
@@ -169,7 +174,7 @@ BlogPostTemplate.propTypes = {
         title: PropTypes.string.isRequired,
         featuredImage: PropTypes.shape({
           childImageSharp: PropTypes.shape({
-            fluid: PropTypes.object.isRequired,
+            gatsbyImageData: PropTypes.object.isRequired,
           }).isRequired,
         }).isRequired,
       }).isRequired,
@@ -182,7 +187,7 @@ BlogPostTemplate.propTypes = {
         title: PropTypes.string.isRequired,
         featuredImage: PropTypes.shape({
           childImageSharp: PropTypes.shape({
-            fluid: PropTypes.object.isRequired,
+            gatsbyImageData: PropTypes.object.isRequired,
           }).isRequired,
         }).isRequired,
       }).isRequired,
@@ -215,9 +220,11 @@ export const pageQuery = graphql`
         origin
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 600) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(
+              width: 600
+              layout: CONSTRAINED
+              placeholder: BLURRED
+            )
           }
         }
         colors
@@ -234,12 +241,17 @@ export const pageQuery = graphql`
         node {
           name
           childImageSharp {
-            thumb: fluid(maxWidth: 160, maxHeight: 160) {
-              ...GatsbyImageSharpFluid
-            }
-            full: fluid(maxWidth: 1200) {
-              ...GatsbyImageSharpFluid
-            }
+            thumb: gatsbyImageData(
+              width: 160
+              layout: CONSTRAINED
+              aspectRatio: 1
+              placeholder: BLURRED
+            )
+            full: gatsbyImageData(
+              width: 1200
+              layout: CONSTRAINED
+              placeholder: BLURRED
+            )
           }
         }
       }
@@ -252,9 +264,12 @@ export const pageQuery = graphql`
         title
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 75, maxHeight: 75) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(
+              width: 75
+              layout: CONSTRAINED
+              aspectRatio: 1
+              placeholder: BLURRED
+            )
           }
         }
       }
@@ -267,9 +282,12 @@ export const pageQuery = graphql`
         title
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 75, maxHeight: 75) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(
+              width: 75
+              layout: CONSTRAINED
+              aspectRatio: 1
+              placeholder: BLURRED
+            )
           }
         }
       }

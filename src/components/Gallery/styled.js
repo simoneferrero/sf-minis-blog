@@ -1,4 +1,4 @@
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import styled, { css } from 'styled-components'
 
 export const StyledThumbnailWrapper = styled.div`
@@ -68,7 +68,7 @@ export const StyledCoverWrapper = styled.div`
   `}
 `
 
-export const StyledFullImage = styled(Img)`
+export const StyledFullImage = styled(GatsbyImage)`
   height: 80vh;
   max-width: 1200px;
   width: 80vw;

@@ -57,6 +57,8 @@ export const StyledBlogPostNav = styled.div`
 
       .thumbnail {
         background-color: ${theme.color['background-primary']};
+        display: flex;
+        flex-direction: column;
         overflow: hidden;
         padding: ${theme.spacing['1']};
         text-align: center;
@@ -66,7 +68,7 @@ export const StyledBlogPostNav = styled.div`
         width: 15vh;
 
         .gatsby-image-wrapper > div {
-          padding-bottom: 100% !important;
+          height: 15vh;
         }
 
         small {
