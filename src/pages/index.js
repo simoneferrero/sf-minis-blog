@@ -74,7 +74,7 @@ BlogIndex.propTypes = {
             origin: PropTypes.string.isRequired,
             featuredImage: PropTypes.shape({
               childImageSharp: PropTypes.shape({
-                fluid: PropTypes.object.isRequired,
+                gatsbyImageData: PropTypes.object.isRequired,
               }).isRequired,
             }).isRequired,
           }).isRequired,
@@ -111,9 +111,12 @@ export const pageQuery = graphql`
           origin
           featuredImage {
             childImageSharp {
-              fluid(maxWidth: 375) {
-                ...GatsbyImageSharpFluid
-              }
+              gatsbyImageData(
+                width: 375
+                layout: CONSTRAINED
+                aspectRatio: 1
+                placeholder: BLURRED
+              )
             }
           }
         }

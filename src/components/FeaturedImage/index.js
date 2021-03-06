@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import styled, { css } from 'styled-components'
 
 import Frame from '../../../content/svg/frame.svg'
@@ -10,7 +10,7 @@ const StyledFeaturedImage = styled.div`
     position: relative;
 
     .gatsby-image-wrapper > div {
-      padding-bottom: ${!isBig && '100% !important'};
+      ${'' /* padding-bottom: ${!isBig && '100% !important'}; */}
     }
 
     .date {
@@ -75,7 +75,10 @@ const FeaturedImage = ({ date, featuredImage, isBig, title }) => {
   const [day, month, year] = date.split(' ')
   return (
     <StyledFeaturedImage isBig={isBig}>
-      <Img fluid={featuredImage.childImageSharp.fluid} alt={title} />
+      <GatsbyImage
+        image={featuredImage.childImageSharp.gatsbyImageData}
+        alt={title}
+      />
       <section className="date" data-testid={`date-${date}`}>
         <div>
           <Frame />
@@ -96,7 +99,7 @@ FeaturedImage.propTypes = {
   date: PropTypes.string.isRequired,
   featuredImage: PropTypes.shape({
     childImageSharp: PropTypes.shape({
-      fluid: PropTypes.object.isRequired,
+      gatsbyImageData: PropTypes.object.isRequired,
     }).isRequired,
   }).isRequired,
   isBig: PropTypes.bool,

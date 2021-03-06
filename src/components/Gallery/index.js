@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 
 import Close from '../../../content/svg/close.svg'
 import Button from '../Button'
@@ -17,6 +17,7 @@ const Gallery = ({ images }) => {
   const selectedImageIndex = images.findIndex(
     ({ name }) => name === selectedImage?.name,
   )
+  console.log(images)
 
   return (
     <>
@@ -26,10 +27,10 @@ const Gallery = ({ images }) => {
           .map(image => (
             <Button
               aria-label={`Display image ${image.name}`}
-              key={image.thumb.src}
+              key={image.name}
               onClick={() => setSelectedImage(image)}
             >
-              <Img fluid={image.thumb} alt={image.name} />
+              <GatsbyImage image={image.thumb} alt={image.name} />
             </Button>
           ))}
       </StyledThumbnailWrapper>
@@ -44,7 +45,7 @@ const Gallery = ({ images }) => {
           </Button>
           <div className="image-wrapper">
             <StyledFullImage
-              fluid={selectedImage.full}
+              image={selectedImage.full}
               alt={`${selectedImage.name} full`}
             />
             <h2>{selectedImage.name}</h2>
