@@ -17,7 +17,6 @@ const Gallery = ({ images }) => {
   const selectedImageIndex = images.findIndex(
     ({ name }) => name === selectedImage?.name,
   )
-  console.log(images)
 
   return (
     <>
