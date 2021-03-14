@@ -20,7 +20,7 @@ Overall, I focused on four main areas:
 - The face and hair
 - The black/grey armor
 - The blue cloth
-- The lightsaber and OSL effects
+- The lightsaber and Object-Source-Lighting effects
 
 Let's go through each one, step-by-step.
 
@@ -62,4 +62,4 @@ However, I could still improve the OSL by highlighting the areas that were more 
 
 To complete the miniature, I decided to base it in "tall" grass. Since his main strength is the ability to hide easily after striking, I thought it would be more thematically accurate.
 
-There are still a bunch of other lightsaber characters to paint, such as Jedi Master Luke or Diala Passil; hopefully, the lessons I'm learning from these early models will make them look even better on the table.1
+There are still a bunch of other lightsaber characters to paint, such as Jedi Master Luke or Diala Passil; hopefully, the lessons I'm learning from these early models will make them look even better on the table.
