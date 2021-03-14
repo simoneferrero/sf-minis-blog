@@ -1,5 +1,11 @@
 const posts = [
   {
+    title: 'Davith Elso',
+    origin: 'Star Wars: Imperial Assault',
+    date: '14 Mar 2021',
+    href: 'davith-elso',
+  },
+  {
     title: 'Imperial Officers',
     origin: 'Star Wars: Imperial Assault',
     date: '07 Mar 2021',
