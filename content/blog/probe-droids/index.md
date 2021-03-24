@@ -26,7 +26,7 @@ The next step was painting the eyes. I decided to give them one red eye, inspire
 
 ---
 
-I was not sure how I would set each group apart from the ~~others~~. I thought of a few ways, from lighting the tone of the body, to glazing it red/blue and giving it a different "aura", but they didn't seem right. So I decided to make the bases very different from each other and use these as the distinguishing factors.
+I was not sure how I would set each group apart from the others. I thought of a few ways, from lighting the tone of the body, to glazing it red/blue and giving it a different "aura", but they didn't seem right. So I decided to make the bases very different from each other and use these as the distinguishing factors.
 
 The first droid was based with a muddy/grassy mix, similar to what I imagine Endor would look like. I just laid out the texture paint, waited for it to dry, washed it a couple of times and put some grass and tufts on top avoiding the larger pools, which I imagined to be more fresh mud.
 
