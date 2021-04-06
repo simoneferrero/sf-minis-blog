@@ -18,6 +18,7 @@ describe('Given the homepage', () => {
 
         cy.wrap(item)
           .findByTitle(title)
+          .scrollIntoView()
           .should('have.attr', 'href')
           .and('include', href)
         cy.wrap(item).findByAltText(title).should('exist')
