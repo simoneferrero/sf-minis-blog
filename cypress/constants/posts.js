@@ -1,5 +1,11 @@
 const posts = [
   {
+    title: 'Jabba the Hutt',
+    origin: 'Star Wars: Imperial Assault',
+    date: '11 Apr 2021',
+    href: 'jabba-the-hutt',
+  },
+  {
     title: 'Stormtroopers',
     origin: 'Star Wars: Imperial Assault',
     date: '10 Apr 2021',
