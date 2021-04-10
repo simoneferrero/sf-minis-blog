@@ -74,3 +74,6 @@ cypress/videos
 
 # Husky
 _
+
+# Local Netlify folder
+.netlify
