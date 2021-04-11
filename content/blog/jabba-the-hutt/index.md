@@ -13,7 +13,7 @@ colors: '{
 videoSrcURL: 'https://youtube.com/embed/WeWjZnS_bNg'
 ---
 
-After painting the Stormtroopers, I chose Jabba to scratch a specific itch: I just wanted to slap some color on the miniature, blend it, and not have to care too much about lines or precise details. Considering that the whole thing about him is that he's a slimy, dirty slug, I could get exactly what I wanted. Also, there's an excellent [tutorial from Sorastro](https://www.youtube.com/watch?v=imFCPPLFwp4&ab_channel=Sorastro%27sPainting) which I followed quite to the letter and produced a really good finish.
+After painting the Stormtroopers, I chose Jabba to scratch a specific itch: I just wanted to slap some color on the miniature, blend it, and not have to care too much about lines or precise details. Considering that the whole thing about him is that he's a slimy, dirty slug, I could get exactly what I wanted. Also, there's an excellent [tutorial from Sorastro](https://www.youtube.com/watch?v=imFCPPLFwp4) which I followed quite to the letter and produced a really good finish.
 
 This provided me with an opportunity too: I recently read about adding retarding medium to help with wet-blending, and I was curious to try it since one of the issues I've always faced with the technique (and painting in general) is that paint dries so quickly I can't really blend it well without producing "coffee stains" or paint streaks. Where I live, we heat our place with underfloor heating, which dries the humidity significantly (at times, below 30%,) and means that even my wet palette gets dry in a manner of one or two hours.
 
@@ -46,7 +46,6 @@ I won't get too much into detail on each step I took, as they are fairly well de
    One of the principles of wet blending is that it will look better when it's dry. Which is true, but in a lot of cases it can be further smoothed out with additional steps, even though there's a primordial fear that touching it up will ruin the blend.
 
    How to fix it: As long as the color is dry, nothing prevents me from applying a glaze, or even layer up on top of the transitions. The benefit of the wet palette is that I can actually access the colors I've used before (provided they haven't dried up yet!) and mix them on the palette as I did on the miniature. That means that the hues should be very consistent and allow us to work and fix up without fear of screwing things up.
-
 
 ![Front View](./jabba-the-hutt_02.jpg)
 
