@@ -15,7 +15,7 @@ videoSrcURL: 'https://youtube.com/embed/lMUh0qCMS3Q'
 
 Since our next campaign will be based on Hoth, I decided to tackle one of the least interesting groups of miniatures that I have, and painted the Snowtroopers.
 
-I find it funny that their main color is cream, rather than white - after all, they are supposed to blend in the snow, and I think regular Stormtroopers are probably better at that than they are! Regardless, they provided a bit of a change from regular troopers and I wanted to have the bunch of them ready to be put on the table ASAP, which is why I didn't really spend too much time blending and glazing, but tried a slightly newer approach. Also, I painted these in batch - which was honestly a bit tedious and something I hadn't done (at lesat, not for more than 4 miniatures) since my first Lord of the Rings army of Uruk-hai, back when I was a teenager. These were the times!
+I find it funny that their main color is cream, rather than white - after all, they are supposed to blend in the snow, and I think regular Stormtroopers are probably better at that than they are! Regardless, they provided a bit of a change from regular troopers and I wanted to have the bunch of them ready to be put on the table ASAP, which is why I didn't really spend too much time blending and glazing, but tried a slightly newer approach. Also, I painted these in batch - which was honestly a bit tedious and something I hadn't done (at least, not for more than 4 miniatures) since my first Lord of the Rings army of Uruk-hai, back when I was a teenager. These were the times!
 
 ---
 
