@@ -86,7 +86,7 @@
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "lint": "eslint \"src\"",
-    "predeploy": "yarn clean && yarn build", 
+    "predeploy": "yarn clean && yarn build",
     "serve": "gatsby serve",
     "serve:cy": "yarn build && yarn serve -p 7070",
     "serve:cy:ci": "yarn serve -p 7070",
@@ -95,9 +95,11 @@
     "test": "start-server-and-test start:cy http://localhost:7070 cy:open",
     "test:cy": "start-server-and-test serve:cy http://localhost:7070 cy:run",
     "test:cy:ci": "start-server-and-test serve:cy:ci http://localhost:7070 cy:run",
-    "validate": "yarn format && yarn lint"
+    "validate": "yarn format && yarn lint",
+    "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,md}": "yarn validate"
+    "*.{js,jsx,ts,tsx,json,md}": "yarn validate",
+    "*.js": "eslint --cache --fix"
   }
 }
