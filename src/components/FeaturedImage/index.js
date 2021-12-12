@@ -9,24 +9,20 @@ const StyledFeaturedImage = styled.div`
   ${({ isBig, theme }) => css`
     position: relative;
 
-    .gatsby-image-wrapper > div {
-      ${'' /* padding-bottom: ${!isBig && '100% !important'}; */}
-    }
-
     .date {
       background-color: white;
       border-radius: 50%;
       bottom: 0;
       color: ${theme.color.text};
       display: grid;
-      height: 22%;
+      height: 5.5em;
       left: 50%;
       overflow: hidden;
       place-items: center;
       position: absolute;
       text-wrap: wrap;
       transform: translate(-50%, 50%);
-      width: 22%;
+      width: 5.5em;
 
       ${isBig &&
       css`
@@ -72,6 +68,7 @@ const StyledFeaturedImage = styled.div`
 `
 
 const FeaturedImage = ({ date, featuredImage, isBig, title }) => {
+  console.log(isBig)
   const [day, month, year] = date.split(' ')
   return (
     <StyledFeaturedImage isBig={isBig}>
